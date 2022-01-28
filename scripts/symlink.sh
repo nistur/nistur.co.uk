@@ -1,14 +1,16 @@
 #!/bin/bash
 
-HOME=/home/$(whoami)
+echo whoami $(whoami)
+echo id $(id -un)
+HOME=/home/$(id -un)
 DIR=${HOME}/${APPLICATION_NAME}
 
-pushd ${DIR}
+#pushd ${DIR}
 
-rm -f static
-rm -f output
+#rm -f static
+#rm -f output
 
-ln -sf ../sites/${APPLICATION_NAME} output
-ln -sf output/static static
+#ln -sf ../sites/${APPLICATION_NAME} output
+#ln -sf output/static static
 
-popd
+#popd
