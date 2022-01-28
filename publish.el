@@ -6,7 +6,7 @@
 (weblorg-site
  :name "Philipp Geyer"
  :base-url "https://nistur.com"
- :theme Default
+;; :theme #'weblorg-theme-default
  :author "Philipp Geyer")
 
 ;; landing page
