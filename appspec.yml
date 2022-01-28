@@ -1,0 +1,15 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ec2-user/TEMPLATE
+hooks:
+  AfterInstall:
+    - location: scripts/permissions.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: scripts/symlink.sh
+    - location: scripts/build.sh
+      timeout: 300
+      runas: ec2-user

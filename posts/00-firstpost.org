@@ -1,0 +1,4 @@
+#+TITLE: First Post
+#+SLUG: first
+
+This is the first post on this template site.
