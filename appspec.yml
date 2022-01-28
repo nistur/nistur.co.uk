@@ -10,6 +10,8 @@ hooks:
       runas: root
   ApplicationStart:
     - location: scripts/symlink.sh
+      timeout: 300
+      runas: ec2-user
     - location: scripts/build.sh
       timeout: 300
       runas: ec2-user

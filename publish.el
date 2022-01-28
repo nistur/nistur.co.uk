@@ -5,8 +5,8 @@
 
 (weblorg-site
  :name "Philipp Geyer"
- :base-url "https://philippgeyer.co.uk"
- :theme nil
+ :base-url "https://nistur.com"
+ :theme Default
  :author "Philipp Geyer")
 
 ;; landing page
@@ -17,7 +17,7 @@
  :output "output/index.html"
  :url "/"
  :site (weblorg-site
-	:base-url "https://philippgeyer.co.uk"))
+	:base-url "https://nistur.com"))
 
 ;; route for rendering each post
 (weblorg-route
@@ -27,7 +27,7 @@
  :output "output/posts/{{ slug }}.html"
  :url "/posts/{{ slug }}.html"
  :site (weblorg-site
-	:base-url "https://philippgeyer.co.uk"))
+	:base-url "https://nistur.com"))
 
 ;; route for rendering the index page of the blog
 (weblorg-route
@@ -38,7 +38,7 @@
  :output "output/blog.html"
  :url "/blog.html"
  :site (weblorg-site
-	:base-url "https://philippgeyer.co.uk"))
+	:base-url "https://nistur.com"))
 
 ;; route for rendering each page
 (weblorg-route
@@ -48,7 +48,7 @@
  :output "output/{{ slug }}.html"
  :url "/{{ slug }}.html"
  :site (weblorg-site
-	:base-url "https://philippgeyer.co.uk"))
+	:base-url "https://nistur.com"))
 
 ;; route for rendering the index page of articles
 (weblorg-route
@@ -59,14 +59,14 @@
  :output "output/articles.html"
  :url "/articles.html"
  :site (weblorg-site
-	:base-url "https://philippgeyer.co.uk"))
+	:base-url "https://nistur.com"))
 
 ;; route for static assets that also copies files to output directory
 (weblorg-copy-static
  :output "static/{{ file }}"
  :url "/static/{{ file }}"
  :site (weblorg-site
-	:base-url "https://philippgeyer.co.uk"))
+	:base-url "https://nistur.com"))
 
 (setq debug-on-error t)
 
