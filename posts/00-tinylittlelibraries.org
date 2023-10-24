@@ -1,0 +1,105 @@
+#+TITLE: Tiny Little Libraries
+#+SLUG: tiny
+
+Often, my mind will wander. I will stumble across a topic that I'd not
+thought about, or not put much effort into learning before, either
+through lack of time, or lack of application. When this happens,
+something just clicks and I go "I wonder if I could..." and I start
+coming up with potential use cases. I will usually have some kind of
+big goal which I never hope to achieve, but will give me a potential
+use case to work towards.
+
+Then I set off researching.
+
+I usually do not look up existing implementations. If this was to be
+something that I wanted to use in a product, that would be a sensible
+thing to do. That isn't the goal here. The goal for these things is
+for me to learn how something functions. To do this, I have found that
+failing is often far more useful. I want to make mistakes. I want to
+have suboptimal code that I understand thoroughly, so that I can look
+at someone else's code then and go "aha, so that's why they've done it
+that way."
+
+I am not saying that these projects are bad, or unusable. I try my
+best to make them usable. I try to make them performant. I just don't
+get too upset if they're not, or if I realise part way through that my
+implementation makes no sense.
+
+So what do I make? I make libraries.
+
+I said that I usually have a potential use case for these things, and
+while that is true, I often don't have the time to implement that,
+plus to do so would require the entire system to be working. Instead I
+make a library which I could potentially use in a project to fulfill
+the task that I want it to. These are my Tiny Little Libraries.
+
+Before I go more into detail about the different libraries, how I
+developed them etc, I should first probably clarify some of the design
+decisions, and what I think makes them "tiny little". I do not try to
+squeeze the functionality into the smallest amount of bytes, I do not
+try to get the absolute bare minimum functionality. Instead the "tiny
+little" refers to a concept whereby I think that the use of the
+library should occupy the absolute bare minimum amount of mental space
+possible. I deviate from this to varying degrees in some of the
+libraries for various reasons, but the underlying thing is that it
+should not have many configuration options, it should not have a
+massive complex interface. It should do one task, it doesn't matter
+too much about the internal complexity, but the user should just go
+"do a thing" and it does a thing.
+
+* The beginning
+This whole thing began with an idea I had. A game I was working on had
+design variables for balancing the game. This is a pretty common thing
+now, most game engines expose these in one way or anther so that you
+don't have to go into the code to change everything. The variables in
+question that had got me thinking were curves. In this specific
+codebase they were defined as a series of points, heights along a
+graph, which were joined up. What occurred to me was that it would be
+interesting if I could specify these curves as mathematical equations.
+
+I created [[https://github.com/nistur/tlmm][tlmm]] - Tiny Little Maths Machine. The idea behind this was
+that you could give it a mathematical equation, such as "x^2+x+12" and
+then you could query it at various values of x, and it would return
+the result.
+
+As this was my first of these libraries, a lot of what I later
+established to be core features, was not in place. I wrote the
+implementation in a mix of C and C++, I provided a C++ interface, I
+also let the library handle file I/O
+
+It worked though. I wrote a simple parser which converted the equation
+into an [[https://en.wikipedia.org/wiki/Reverse_Polish_notation][RPN]] bytecode, and then evaluated that using a simple stack
+system. Using this bytecode system, I could evaluate fairly complex
+equations quickly
+
+#+BEGIN_SRC C
+  tlmmProgram* prog = tlmmInitProgram();
+  tlmmParseProgram(prog, "x^2+x+12");
+  float y = tlmmGetValue(prog, 2);
+  tlmmTerminateProgram(prog);
+#+END_SRC
+
+Also introduced with tlmm was my test suite. This is a very basic C++
+test suite which handles test grouping, and also timed tests. To date,
+I don't think I've ever actually specified time limits for tests, but
+I technically could.
+
+* How many bits?
+
+My largest, most complete, and most complex library is [[https://github.com/nistur/tlvm][tlvm]] - Tiny
+Little Virtual Machine. This is not actually a complete VM, but rather
+a CPU emulator for 8 bit CPUs. VM just sounded better.
+
+This project started because I realised that my knowledge of computers
+only went so far, and I really had no idea how processors worked,
+every time I looked at assembly code, it confused and scared me. I
+wanted to understand how CPUs functioned, so I could make them do more
+things. I initially started trying to design my own CPU to emulate,
+but quickly realised that I had absolutely no idea what I was doing,
+so decided it was a better idea to emulate an existing, well
+documented design. Out of the multitudes of CPU architectures, which
+would I choose? Intel 8080 of course. This choice has left me with a
+large headache, why didn't I just choose 6502? The reason is, of
+course, that I am a massive fan of the movie [[https://www.imdb.com/title/tt0086567/][Wargames]], and would love
+to own Matthew Broderick's IMSAI 8080 from that movie.
+

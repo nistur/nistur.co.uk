@@ -1,0 +1,12 @@
+#+TITLE: Website Credits
+#+SLUG: credits
+
+I am neither a web developer, nor am I an artist. This website
+couldn't have been made without open source and creative commons
+software and assets. Below I've listed everything that I haven't
+created, or had created specifically for me, along with the license
+for it.
+
+- Web hosting - [[https://opensourcerers.uk/][Open Sourcerers]]
+- Static site generator - [[https://emacs.love/weblorg][Weblorg]] - [[https://www.gnu.org/licenses/gpl-3.0.en.html][GPL]]
+- Footer image - [[https://bakudas.itch.io/generic-dungeon-pack][Generic DUNGEON Pack]] - [[https://creativecommons.org/share-your-work/public-domain/cc0/][CC0]]

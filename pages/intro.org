@@ -1,4 +1,20 @@
 #+TITLE: Intro
 #+SLUG: intro
 
-This is the main intro page of the template site.
+This is my personal site. It will be in addition to my [[https://philippgeyer.co.uk][more
+professional site]]. This site will document my various personal
+projects, and personal ponderings on software development in general,
+and game development specifically.
+
+I am a game developer. I started wanting to be a game developer as a
+child, having found QBASIC on my PC, and writing text adventures. That
+does not mean that all I do is strictly games stuff though. I tinker
+with a lot of different ideas. I often find topics that I find
+interesting and then explore them by writing code. Sometimes these
+projects have potential games applications, sometimes they do not.
+
+I will predominantly write most of my experiments in C. This isn't for
+some ingrained love of the language, but rather because I tend to
+work professionally in higher level code, so C remains familiar, yet
+different. I do also experiment with other languages, most notably
+assembler and lisp.
