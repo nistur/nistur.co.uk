@@ -1,0 +1,52 @@
+#+TITLE: I cannot lisp
+#+SLUG: lisp
+#+DATE: <2023-10-25 Wed>
+
+[[url_for_img:static,file=images/pexels-pixabay-257881.jpg][Photo by Pixabay on Pexels]]
+
+/I cannot lisp./
+
+As confessions go, it's a pretty weak one, but maybe I should explain
+myself.
+
+For years now, I have been a fan of lisp, and advocating for its
+usage. I have used emacs daily for a decade and a half. I have several
+projects on [[https://github.com/nistur][my github]] which are lisp oriented in one way or another. I
+have written three minimalist lisp interpreters, and hacked around
+with two existing lisp projects.
+
+Sure, I know how to do the basics, I can do a basic Hello World in a
+handful of dialects without looking up syntax, and can comfortably
+write more complex functionality in them if I have some reference. I
+still feel like /I don't really get it though/. Which is a very
+strange thing to say, considering I advocate for its usage.
+
+There are a lot of the core features and the ideas around which lisp
+is designed which I approve of, and more that I want to explore
+more. My problem is that in my day job, I am a C/C++ developer. I have
+tried to find uses for lisps in my projects, but I have never found
+anything where I can realistically use it in anger to actually get
+comfortable with it. When I've tried on some projects, I've always
+been stumbling at the "I know how to write this in C, and could write
+it much quicker." I can see the elegance of lisp, especially compared
+to a language like C, I just don't /get it/ yet.
+
+And I think that is the biggest problem. Programming in lisp needs
+such a different way of thinking about it than programming in a C-like
+language, whether this is a procedural language, or an object oriented
+one, that it is difficult to do so.
+
+I will not go into depth about why I believe lisp is elegant. I may
+tackle it in another post, but that is not the point of this. I will,
+however, say that it is worth everyone having a dabble with lisp, and
+any language, regardless of whether it is directly useful for your
+career or what you want to do. Different programming languages give
+you different outlooks on problems. Some tasks are remarkably simple
+in one language compared to another. Being able to think in different
+ways about problems can therefore turn a problem which might otherwise
+seem overwhelming on its head, and you realise that you can take what
+you learned, and solve it in a different way.
+
+I cannot lisp, but I'm going to keep trying.
+
+[[img:https://imgs.xkcd.com/comics/lisp_cycles.png,link=https://xkcd.com/297/][Lisp Cycles - XKCD]]

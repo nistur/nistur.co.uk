@@ -1,5 +1,10 @@
 #+TITLE: Tiny Little Libraries
 #+SLUG: tiny
+#+DATE: <2023-10-24 Tue>
+
+/NOTE: This page is a work in progress/
+
+* Introduction
 
 Often, my mind will wander. I will stumble across a topic that I'd not
 thought about, or not put much effort into learning before, either
@@ -102,4 +107,49 @@ would I choose? Intel 8080 of course. This choice has left me with a
 large headache, why didn't I just choose 6502? The reason is, of
 course, that I am a massive fan of the movie [[https://www.imdb.com/title/tt0086567/][Wargames]], and would love
 to own Matthew Broderick's IMSAI 8080 from that movie.
+
+* What's the secret?
+
+My most recent library is [[https://github.com/nistur/tlss][tlss]] - Tiny Little Sudoku Solver. This came
+because I had been solving sudokus, and realised that the way in which
+I tend to approach solving them should be able to be handled by a
+computer. I assume availability of all possible digits for all cells,
+then using rules, restrict that availability. I considered for a while
+whether or not I should write something. Of course having an automated
+solver would spoil any enjoyment if I actually used it, but if I just
+used it as fun project, then it would be ok.
+
+I didn't initally set out to write one of my tiny little libraries,
+instead I hacked together a quick C++ proof of concept. It used very
+naive logic, only checking rows and columns for digits, only really
+taking into account [[http://sudopedia.enjoysudoku.com/Naked_Single.html][Naked Singles]] (that's a SFW link, I promise!)
+which let is solve only the simplest grids. When I considered how I
+would extend it, I found my design a bit clunky, so I decided to
+rewrite it, which is where tlss was born.
+
+As with previous libraries it follows a very similar pattern. All
+general state is stored within a context struct, which would allow for
+multiple solvers to run concurrently if you so desire. Functions tend
+to all return an error value with 0 as no error, with an enum for
+error lookup. I also used [[https://en.wikipedia.org/wiki/Test-driven_development][TDD]] quite extensively, by first writing a
+function stub, then the tests, deciding on all the invalid and valid
+inputs for that function, then making the function pass the tests.
+
+One decision I made which might not make an awful lot of sense was to
+make the grids immutable. This decision was made for two different
+reasons, both of which are possibly a little over complicated, but as
+this is an experimentation project, I thought it was the ideal place
+to do it. Firstly, I had the idea that perhaps the solver could be
+made to solve a particularly hard sudoku concurrently. To do this, I
+would have to fork off the solving, and then merge the results
+together. While immutable data is not a requirement for this, it would
+make implementing it much simpler. The other reason is that I would
+like for the solver itself to be extensible by whatever is using
+tlss. By this I mean, I will be providing an interface to add rules on
+top of the existing tlss implementation. This might be implementing
+additional methods to restrict cells, like checking for [[https://sudoku.com/sudoku-rules/swordfish/][Swordfishes]]
+for if it's adding rules for variant sudoku, like adding in
+[[https://en.wikipedia.org/wiki/Killer_sudoku][Killer cages]]. One of the things I would like to do is to implement
+these in a functional style. While, again, immutable data types aren't
+a requirement here, they do make it easier to force myself to do this.
 
