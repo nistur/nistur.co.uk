@@ -5,6 +5,7 @@ site:
 	ln -s ../static output/static
 
 site-local:
+	rm -rf output
 	CONFIG=local emacs --script publish.el
 	ln -s ../static output/static
 

@@ -1,6 +1,8 @@
 #+TITLE: In search of a GOAL
 #+SLUG: goal
+#+DATE: <2023-10-26 Thu>
 
+[[url_for_img:static,file=images/pexels-engin-akyurt-1552617.jpg][Photo by Engin Akyurt]]
 * Introduction
   For those in the know, they will realise the topic of this post from
   its capitalisation. [[url_for:posts,slug=lisp][My last post]] talked briefly about why I cannot
@@ -35,7 +37,7 @@
   until years later. While a lot of these are more common now, at
   least on desktop development, such as edit and continue, they never
   seem to work perfectly.
-
+[[url_for_img:static,file=images/pexels-rafael-rodrigues-18764111.jpg][Photo by Rafael Rodrigues]]
 * The plan
   There are game development resources for using lisp dialects such as
   Common Lisp. Some of them are very good and I really should spend
@@ -94,7 +96,7 @@
   system, and forcing it to do things it does not want to do. I will
   continue to do so, I think it is unlikely that this will ever be
   anything more.
-
+[[url_for_img:static,file=images/pexels-singkham-1108572.jpg][Photo by Singkham]]
   My other main attempt was to do what I do best, and reinvent the
   wheel. I started off a project which I called [[https://github.com/nistur/yl][yoctolisp]] due to how
   incomplete it is. It is actually based on a miniature [[https://github.com/nistur/cv/blob/0313951408743e0ea7532c6ab336459f0b4567c9/src/lisp.c][lisp
@@ -141,7 +143,7 @@
   may also fork off yl's stage0 into a separate project if I can think
   of a purpose for it, although I already have [[https://github.com/nistur/tlli][a bad lisp interpreter
   project]] so maybe that's unneccessary.
-
+[[url_for_img:static,file=images/pexels-aa-dil-1730337.jpg][Photo by Aa Dil]]
   /This post is the second in a series of lisp-centric posts. The
   previous post can be found [[url_for:posts,slug=lisp][here]]. The next post will be linked once
   it has been published./

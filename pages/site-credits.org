@@ -1,5 +1,6 @@
 #+TITLE: Website Credits
 #+SLUG: credits
+#+OPTIONS: toc:nil H:1 num:nil
 
 I am neither a web developer, nor am I an artist. This website
 couldn't have been made without open source and creative commons
@@ -11,6 +12,13 @@ for it.
 - Static site generator - [[https://emacs.love/weblorg][Weblorg]] - [[https://www.gnu.org/licenses/gpl-3.0.en.html][GPL]]
 - Footer image - [[https://bakudas.itch.io/generic-dungeon-pack][Generic DUNGEON Pack]] - [[https://creativecommons.org/share-your-work/public-domain/cc0/][CC0]]
 
-[[url_for:posts,slug=lisp][I cannot lisp]]
-- [[https://www.pexels.com/photo/computer-computer-keyboard-contemporary-display-257881/][Turned-off Vintage White and Black Computer]] - [[https://www.pexels.com/@pixabay/][Pixabay]] - [[https://creativecommons.org/share-your-work/public-domain/cc0/][CC0]]
-- [[https://xkcd.com/297][Lisp Cycles]] - [[https://xkcd.com][XKCD]] - [[https://creativecommons.org/licenses/by-nc/2.5/][CC BY-NC 2.5]]
+* [[url_for:posts,slug=lisp][I cannot lisp]]
+** [[https://www.pexels.com/photo/computer-computer-keyboard-contemporary-display-257881/][Turned-off Vintage White and Black Computer]] - [[https://www.pexels.com/@pixabay/][Pixabay]] - [[https://creativecommons.org/share-your-work/public-domain/cc0/][CC0]]
+** [[https://xkcd.com/297][Lisp Cycles]] - [[https://xkcd.com][XKCD]] - [[https://creativecommons.org/licenses/by-nc/2.5/][CC BY-NC 2.5]]
+
+* [[url_for:posts,slug=goal][In search of a GOAL]]
+** [[https://www.pexels.com/photo/black-and-white-dartboard-1552617/][Black and White Dartboard]] - [[https://www.pexels.com/@enginakyurt/][Engin Akyurt]] - [[https://www.pexels.com/license/][Pexels]]
+** [[https://www.pexels.com/photo/black-and-white-photo-of-a-funny-dog-18764111/][Black and White Photo of a Funny Dog]] - [[https://www.pexels.com/@rrodriguesim/][Rafael Rodrigues]] - [[https://www.pexels.com/license/][Pexels]]
+  /I was trying to find a photo of a 'Naughty Dog' but all I found was good boys!/
+** [[https://www.pexels.com/photo/clear-light-bulb-planter-on-gray-rock-1108572/][Clear Light Bulb Planter on Gray Rock]] - [[https://www.pexels.com/@singkham-178541/][Singkham]] - [[https://www.pexels.com/license/][Pexels]]
+** [[https://www.pexels.com/photo/man-standing-between-stairway-on-pathway-1730337/][Man Standing Between Stairway on Pathway]] - [[https://www.pexels.com/@aadil/][Aa Dil]] - [[https://www.pexels.com/license/][Pexels]]
