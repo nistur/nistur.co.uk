@@ -1,0 +1,148 @@
+#+TITLE: In search of a GOAL
+#+SLUG: goal
+
+* Introduction
+  For those in the know, they will realise the topic of this post from
+  its capitalisation. [[url_for:posts,slug=lisp][My last post]] talked briefly about why I cannot
+  lisp. Now I wanted to go into why I want to. As before I want to not
+  talk about the simplicity of lisp or its elegance. These things are
+  fairly subjective and much better documented elsewhere. Rather, I
+  want to talk about my goal with lisp.
+
+* GOAL
+  I mentioned previously that I didn't really have a project I could
+  sink my teeth into to properly learn lisp. This isn't strictly
+  true. I do have one, but it is so large that I don't dare start it
+  until I understand more first.
+
+  I want to write a game.
+
+  Thankfully I have [[https://philippgeyer.co.uk/cv/00.html][a bit of experience]] in making games, so I know
+  what a mammoth undertaking this is. That is also why I am worried
+  about starting it.
+
+  So the first question here would be "Why lisp? Why not a language
+  you're familiar with?" and there are many complicated answers to
+  that question, but there's one which is the primary subject. Naughty
+  Dog did it.
+
+  I played a bunch of Crash Bandicoot, and Jak and Daxter when I was
+  younger. Both of these games were made in lisp. Specifically they
+  were made by an in house version of lisp, in the case of Jak and
+  Daxter, called [[https://en.wikipedia.org/wiki/Game_Oriented_Assembly_Lisp][Game Oriented Assembly Lisp]], GOAL. From what the
+  developer, Andy Gavin, describes, this had many high level quality
+  of life features which were not really common in console development
+  until years later. While a lot of these are more common now, at
+  least on desktop development, such as edit and continue, they never
+  seem to work perfectly.
+
+* The plan
+  There are game development resources for using lisp dialects such as
+  Common Lisp. Some of them are very good and I really should spend
+  more time going through them. None of the languages have precisely
+  the feature set that I want, and whenever I have started learning
+  them, have been frustrated that they do not have something I
+  want. It is perfectly possible that this is a failing on my part, in
+  not being able to think like a lisper and do it the lisp way, but I
+  have decided to do what I have done when I don't understand a
+  problem, and [[url_for:posts,slug=tiny][try to implement it myself]].
+
+  There are a few features that are must haves for me, and a few which
+  are nice to have down the line, and then some more wishlist further
+  on. One example that it must have is that it must be a natively compiled
+  language. While I don't necessarily want to push modern computers to
+  their limit, I like tinkering with older computers, and being able
+  to easily port to an older system is something I would want to do. A
+  nice to have associated with this is optional manual optimisation
+  techniques, such as inline assembly, and optional typing. The
+  wishlist for this is then to also have an untyped interpreted
+  environment, ideally with seemless interop, and in the same dialect,
+  allowing for developing a system in an interpreted environment,
+  giving greater access to debugging features, then switching it to
+  being compiled once it has been proven out.
+
+  /I do not want to give the impression that the above were my only
+  requirements. As such, something like Common Lisp would have
+  probably sufficed. I also don't want to suggest that no lisp
+  implementation is suitable, as I have mentioned previously, it is
+  more likely my own unfamiliarity which makes me not appreciate
+  things. This is more a voyage of discovery, rather than a task to
+  find or make the most perfect lisp. This information is just given
+  as context for what I'm attempting to achieve./
+  
+* Progress
+  While I have had a few attempts at doing something along these
+  lines, there are two which are worth documenting. For these I have
+  taken two different approaches, and had different problems.
+
+  My first attempt was to leverage an existing system. I had come
+  across [[https://s48.org/][Scheme48]] which, while being interpreted, did use a subset of
+  scheme, [[https://groups.scheme.org/prescheme/1.3/][Prescheme]], in which its VM was written, which compiles to C,
+  and from there to native code. There are several limitations in
+  Prescheme, but I hoped that I could hack in some of the features I
+  wanted, and extend it within the language for the rest. To this
+  end, I [[https://github.com/nistur/scheme48][forked scheme48]] and started hacking around. I have mostly
+  made some changes which allow linking to external C libraries more
+  easily, and have them written some test applications, such as a
+  [[https://github.com/nistur/ps-tinywm][quick implementation]] of [[http://incise.org/tinywm.html][tinywm]], albeit missing some of the
+  callbacks, because of currently not being able to access child
+  records/structs in prescheme.
+
+  While this attempt was successful in being able to create
+  executables which did what I wanted for the most part, and I do
+  continue hacking on it, it always feels like I'm fighting the
+  system, and forcing it to do things it does not want to do. I will
+  continue to do so, I think it is unlikely that this will ever be
+  anything more.
+
+  My other main attempt was to do what I do best, and reinvent the
+  wheel. I started off a project which I called [[https://github.com/nistur/yl][yoctolisp]] due to how
+  incomplete it is. It is actually based on a miniature [[https://github.com/nistur/cv/blob/0313951408743e0ea7532c6ab336459f0b4567c9/src/lisp.c][lisp
+  interpreter]] which I used to have in my CV. The idea behind this one
+  was that I would write a bootstrapping compiler, and I would not
+  only be in control of everything which happened from the ground up,
+  but I would understand it all because I'd written it. Of course
+  first I had to fix all the bugs and add missing features in the
+  interpreter, which is an ongoing task. Then I could start work on
+  the compiler. It's intended to be a multi-stage compiler. Stage0 is
+  the interpreter, which just needs a C89 compliant compiler on the
+  system. I would then write a minimal compiler which runs on the
+  interpreter, Stage1, which would then immediately compile itself, so
+  that it can run more quickly. The native Stage1 compiler would then
+  be used to compile Stage2, which is the full language, including
+  standard library. The language dialect across the 'stages' would be
+  identical, so anything written to run on Stage0 would run on
+  Stage2. The inverse would not be true however as Stage2 would
+  implement additional features. This would mean that once Stage1 was
+  built, Stage0 would be unneccessary, and a previous Stage1 build
+  could be used to rebuild Stage1 in future. Similarly, an existing
+  Stage2 could be used without the need for any initial stages.
+
+  Of course, like I mentioned, fixing issues in Stage0 is an ongoing
+  task, and I have not yet got anything functional in Stage1, let
+  alone Stage2. This is in large part due to my almost zero
+  understanding of how lisps functioned when writing the original
+  interpreter, leaving me with some head scratching design decisions
+  to work around or refactor. There are some great things that have
+  come out of it though, the way I wrote the interpreter's parser, it
+  'just works' to parse the Stage1 file into an AST that I can
+  traverse with almot no additional code. 
+
+* Next steps
+  I am not going to abandon either of the above attempts. I have
+  learned a lot from working with them and that doesn't seem to be
+  stopping. I don't believe that either of these solutions with be
+  "the next GOAL". Now I better understand lisp, I would probably be
+  better off going with [[https://www.sbcl.org/][SBCL]] or maybe [[https://cisco.github.io/ChezScheme/][Chez Scheme]] both of which
+  appear to support the majority of my requirements.
+
+  While I am undecided which direction to go for a 'production'
+  solution, I will continue hacking around with these two projects. I
+  may also fork off yl's stage0 into a separate project if I can think
+  of a purpose for it, although I already have [[https://github.com/nistur/tlli][a bad lisp interpreter
+  project]] so maybe that's unneccessary.
+
+  /This post is the second in a series of lisp-centric posts. The
+  previous post can be found [[url_for:posts,slug=lisp][here]]. The next post will be linked once
+  it has been published./
+  

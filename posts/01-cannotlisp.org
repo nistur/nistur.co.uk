@@ -50,3 +50,6 @@ you learned, and solve it in a different way.
 I cannot lisp, but I'm going to keep trying.
 
 [[img:https://imgs.xkcd.com/comics/lisp_cycles.png,link=https://xkcd.com/297/][Lisp Cycles - XKCD]]
+
+/This is the first post in a series about lisp. The next post is
+available [[url_for:posts,slug=goal][here]],/
